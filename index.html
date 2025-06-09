@@ -1,0 +1,1458 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>یادبود عزیزان | بزرگداشت یاد و خاطره درگذشتگان</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #8e44ad;
+        --primary-dark: #6c3483;
+        --secondary: #e74c3c;
+        --light: #f5f5f5;
+        --dark: #2c3e50;
+        --gray: #7f8c8d;
+        --light-bg: rgba(255, 255, 255, 0.1);
+        --card-bg: rgba(255, 255, 255, 0.05);
+        --transition: all 0.3s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Vazirmatn, sans-serif;
+      }
+
+      body {
+        background: linear-gradient(135deg, #1a2a6c, #2c3e50);
+        color: var(--light);
+        min-height: 100vh;
+        padding: 20px;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      /* Header Styles */
+      header {
+        text-align: center;
+        padding: 20px 0;
+        margin-bottom: 30px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        position: relative;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        background: linear-gradient(to right, #f8c291, #e55039);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .subtitle {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        margin-bottom: 15px;
+      }
+
+      .user-actions {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        display: flex;
+        gap: 10px;
+      }
+
+      /* Main Content Layout */
+      .main-content {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      @media (min-width: 992px) {
+        .main-content {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      /* Memorial Section Styles */
+      .memorial-section {
+        background: var(--light-bg);
+        border-radius: 15px;
+        padding: 25px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(10px);
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        color: #f8c291;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border-bottom: 2px solid rgba(248, 194, 145, 0.3);
+        padding-bottom: 10px;
+      }
+
+      .section-title i {
+        font-size: 1.5rem;
+      }
+
+      /* Form Styles */
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+        color: #f8c291;
+      }
+
+      input,
+      textarea,
+      select {
+        width: 100%;
+        padding: 12px 15px;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(0, 0, 0, 0.3);
+        color: white;
+        font-size: 1rem;
+        transition: var(--transition);
+      }
+
+      input:focus,
+      textarea:focus,
+      select:focus {
+        outline: none;
+        border-color: #f8c291;
+        box-shadow: 0 0 0 3px rgba(248, 194, 145, 0.3);
+      }
+
+      .btn {
+        background: linear-gradient(
+          to right,
+          var(--primary),
+          var(--primary-dark)
+        );
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        font-size: 1.1rem;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: var(--transition);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        font-weight: 500;
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .btn-secondary {
+        background: linear-gradient(to right, var(--secondary), #c0392b);
+      }
+
+      .btn i {
+        font-size: 1.2rem;
+      }
+
+      /* Memorial Card Styles */
+      .memorial-card {
+        background: var(--card-bg);
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+        transition: var(--transition);
+        border-left: 3px solid var(--primary);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .memorial-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .memorial-name {
+        font-size: 1.5rem;
+        color: #f8c291;
+        margin-bottom: 10px;
+      }
+
+      .memorial-dates {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 15px;
+        color: #bbb;
+        font-size: 0.9rem;
+      }
+
+      .memorial-photo {
+        width: 100%;
+        max-height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .memorial-bio {
+        margin-bottom: 15px;
+        line-height: 1.7;
+      }
+
+      .actions {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .action-btn {
+        flex: 1;
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        color: white;
+        padding: 10px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: var(--transition);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        font-size: 0.9rem;
+      }
+
+      .action-btn:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .action-btn i {
+        font-size: 1.5rem;
+      }
+
+      .action-btn.disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      /* Candles Styles */
+      .candles-container {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin: 30px 0;
+        flex-wrap: wrap;
+      }
+
+      .candle {
+        width: 30px;
+        height: 70px;
+        background: #e0e0e0;
+        border-radius: 3px 3px 0 0;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .candle:hover {
+        transform: translateY(-5px);
+      }
+
+      .candle.flame {
+        background: linear-gradient(to bottom, #f8c291, #e55039);
+      }
+
+      .candle.wick {
+        width: 3px;
+        height: 10px;
+        background: #333;
+        position: absolute;
+        top: -10px;
+      }
+
+      .candle.flame::before {
+        content: "";
+        width: 15px;
+        height: 25px;
+        background: radial-gradient(
+          ellipse at center,
+          #ffef00,
+          #ff9900 60%,
+          transparent 70%
+        );
+        border-radius: 50% 50% 20% 20%;
+        position: absolute;
+        top: -25px;
+        animation: flicker 2s infinite alternate;
+      }
+
+      @keyframes flicker {
+        0% {
+          opacity: 0.8;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.05);
+        }
+        100% {
+          opacity: 0.8;
+          transform: scale(1);
+        }
+      }
+
+      /* Prayer Section */
+      .prayer-section {
+        text-align: center;
+        padding: 30px;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 15px;
+        margin-top: 30px;
+      }
+
+      .prayer-text {
+        font-size: 1.8rem;
+        line-height: 2;
+        margin: 30px 0;
+        text-align: center;
+        font-weight: 300;
+        background: rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        border-radius: 10px;
+      }
+
+      /* Comments Section */
+      .comments-section {
+        margin-top: 30px;
+      }
+
+      .comment-form {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+
+      .comment-form input {
+        flex: 1;
+      }
+
+      .comments-list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .comment {
+        background: var(--card-bg);
+        padding: 15px;
+        border-radius: 8px;
+        border-right: 3px solid var(--primary);
+        animation: fadeIn 0.5s ease;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .comment-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+        font-size: 0.9rem;
+        color: #f8c291;
+      }
+
+      .comment-user {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .comment-user i {
+        font-size: 0.9rem;
+      }
+
+      /* Notification */
+      .notification {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 15px 25px;
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        border-radius: 8px;
+        border-left: 4px solid #f8c291;
+        transform: translateX(120%);
+        transition: transform 0.3s ease;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .notification.show {
+        transform: translateX(0);
+      }
+
+      .notification.error {
+        border-left-color: #e74c3c;
+      }
+
+      .notification.success {
+        border-left-color: #2ecc71;
+      }
+
+      .notification i {
+        font-size: 1.2rem;
+      }
+
+      /* Stats */
+      .stats {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .stat-item {
+        text-align: center;
+      }
+
+      .stat-number {
+        font-size: 2rem;
+        color: #f8c291;
+      }
+
+      .stat-label {
+        font-size: 0.9rem;
+        opacity: 0.8;
+      }
+
+      /* Login Modal */
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(5px);
+      }
+
+      .modal.show {
+        display: flex;
+        animation: fadeIn 0.3s ease;
+      }
+
+      .modal-content {
+        background: linear-gradient(135deg, #1a2a6c, #2c3e50);
+        border-radius: 15px;
+        width: 90%;
+        max-width: 500px;
+        padding: 30px;
+        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+        position: relative;
+      }
+
+      .close-modal {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #fff;
+        background: rgba(0, 0, 0, 0.3);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .tabs {
+        display: flex;
+        margin-bottom: 20px;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .tab {
+        flex: 1;
+        text-align: center;
+        padding: 12px;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .tab.active {
+        background: var(--primary);
+      }
+
+      .tab-content {
+        display: none;
+      }
+
+      .tab-content.active {
+        display: block;
+      }
+
+      /* Footer */
+      footer {
+        text-align: center;
+        padding: 30px 0;
+        margin-top: 50px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: #aaa;
+        font-size: 0.9rem;
+      }
+
+      /* Memorial Page */
+      .memorial-page {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .memorial-header {
+        text-align: center;
+        padding: 30px 0;
+        margin-bottom: 30px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .memorial-title {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        color: #f8c291;
+      }
+
+      .back-btn {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 8px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Login/Register Modal -->
+      <div class="modal" id="authModal">
+        <div class="modal-content">
+          <span class="close-modal" id="closeModal">&times;</span>
+          <div class="tabs">
+            <div class="tab active" data-tab="login">ورود</div>
+            <div class="tab" data-tab="register">ثبت‌نام</div>
+          </div>
+
+          <div class="tab-content active" id="loginContent">
+            <h2 class="section-title">
+              <i class="fas fa-sign-in-alt"></i> ورود به حساب کاربری
+            </h2>
+            <div class="form-group">
+              <label for="loginUsername">نام کاربری</label>
+              <input
+                type="text"
+                id="loginUsername"
+                placeholder="نام کاربری خود را وارد کنید"
+              />
+            </div>
+            <div class="form-group">
+              <label for="loginPassword">رمز عبور</label>
+              <input
+                type="password"
+                id="loginPassword"
+                placeholder="رمز عبور خود را وارد کنید"
+              />
+            </div>
+            <button class="btn" id="loginBtn">
+              <i class="fas fa-sign-in-alt"></i> ورود به حساب
+            </button>
+          </div>
+
+          <div class="tab-content" id="registerContent">
+            <h2 class="section-title">
+              <i class="fas fa-user-plus"></i> ایجاد حساب کاربری
+            </h2>
+            <div class="form-group">
+              <label for="registerName">نام کامل</label>
+              <input
+                type="text"
+                id="registerName"
+                placeholder="نام و نام خانوادگی خود را وارد کنید"
+              />
+            </div>
+            <div class="form-group">
+              <label for="registerUsername">نام کاربری</label>
+              <input
+                type="text"
+                id="registerUsername"
+                placeholder="یک نام کاربری انتخاب کنید"
+              />
+            </div>
+            <div class="form-group">
+              <label for="registerPassword">رمز عبور</label>
+              <input
+                type="password"
+                id="registerPassword"
+                placeholder="یک رمز عبور قوی انتخاب کنید"
+              />
+            </div>
+            <button class="btn" id="registerBtn">
+              <i class="fas fa-user-plus"></i> ثبت‌نام
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Page -->
+      <div id="mainPage">
+        <header>
+          <div class="user-actions">
+            <button class="btn" id="loginBtnMain">
+              <i class="fas fa-sign-in-alt"></i> ورود / ثبت‌نام
+            </button>
+            <button
+              class="btn btn-secondary"
+              id="logoutBtn"
+              style="display: none"
+            >
+              <i class="fas fa-sign-out-alt"></i> خروج
+            </button>
+          </div>
+          <h1><i class="fas fa-heart"></i> یادبود عزیزان</h1>
+          <p class="subtitle">برای بزرگداشت یاد و خاطره عزیزان از دست رفته</p>
+          <div id="userWelcome" style="display: none">
+            خوش آمدید، <span id="usernameDisplay"></span>
+          </div>
+        </header>
+
+        <div class="main-content">
+          <div class="memorial-section">
+            <h2 class="section-title">
+              <i class="fas fa-plus-circle"></i> ایجاد صفحه یادبود جدید
+            </h2>
+
+            <form class="create-form" id="createMemorialForm">
+              <div class="form-group">
+                <label for="deceasedName">نام متوفی</label>
+                <input
+                  type="text"
+                  id="deceasedName"
+                  placeholder="نام کامل متوفی را وارد کنید"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="birthDate">تاریخ تولد</label>
+                <input type="date" id="birthDate" required />
+              </div>
+
+              <div class="form-group">
+                <label for="deathDate">تاریخ وفات</label>
+                <input type="date" id="deathDate" required />
+              </div>
+
+              <div class="form-group">
+                <label for="photo">عکس متوفی (اختیاری)</label>
+                <input type="file" id="photo" accept="image/*" />
+              </div>
+
+              <div class="form-group">
+                <label for="bio">زندگینامه کوتاه</label>
+                <textarea
+                  id="bio"
+                  rows="4"
+                  placeholder="توضیح کوتاهی درباره متوفی بنویسید..."
+                  required
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn">
+                <i class="fas fa-save"></i> ایجاد صفحه یادبود
+              </button>
+            </form>
+          </div>
+
+          <div class="memorial-section">
+            <h2 class="section-title">
+              <i class="fas fa-book-open"></i> صفحات یادبود
+            </h2>
+
+            <div class="memorials-list" id="memorialsList">
+              <!-- Memorials will be loaded here -->
+            </div>
+          </div>
+        </div>
+
+        <footer>
+          <p>ساخته شده با ❤️ برای بزرگداشت یاد و خاطره عزیزان از دست رفته</p>
+          <p>هر فاتحه و شمعی که روشن می‌کنید، روحشان را شاد می‌کند</p>
+        </footer>
+      </div>
+
+      <!-- Memorial Page (hidden by default) -->
+      <div id="memorialPage" style="display: none">
+        <button class="back-btn" id="backBtn">
+          <i class="fas fa-arrow-left"></i> بازگشت
+        </button>
+
+        <div class="memorial-page">
+          <div class="memorial-header">
+            <h1 class="memorial-title" id="memorialPageTitle"></h1>
+            <div class="memorial-dates">
+              <span id="memorialBirthDate"></span>
+              <span id="memorialDeathDate"></span>
+            </div>
+          </div>
+
+          <img
+            src=""
+            alt="عکس متوفی"
+            class="memorial-photo"
+            id="memorialPagePhoto"
+          />
+
+          <div class="memorial-section">
+            <h2 class="section-title"><i class="fas fa-book"></i> زندگینامه</h2>
+            <p class="memorial-bio" id="memorialPageBio"></p>
+
+            <div class="stats">
+              <div class="stat-item">
+                <div class="stat-number" id="prayersCount">0</div>
+                <div class="stat-label">فاتحه</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number" id="candlesCount">0</div>
+                <div class="stat-label">شمع</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number" id="commentsCount">0</div>
+                <div class="stat-label">یادداشت</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="prayer-section">
+            <h2 class="section-title">
+              <i class="fas fa-book-quran"></i> فاتحه‌خوانی
+            </h2>
+
+            <div class="candles-container" id="candlesContainer">
+              <!-- Candles will be generated here -->
+            </div>
+
+            <p class="prayer-text">
+              بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ (۱) الْحَمْدُ لِلَّهِ رَبِّ
+              الْعَالَمِينَ (۲) الرَّحْمَٰنِ الرَّحِيمِ (۳) مَالِكِ يَوْمِ
+              الدِّينِ (۴) إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (۵) اهْدِنَا
+              الصِّرَاطَ الْمُسْتَقِيمَ (۶) صِرَاطَ الَّذِينَ أَنْعَمْتَ
+              عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ (۷)
+            </p>
+
+            <button class="btn" id="prayBtn">
+              <i class="fas fa-hands-praying"></i> فاتحه بخوانید
+            </button>
+          </div>
+
+          <div class="comments-section">
+            <h2 class="section-title">
+              <i class="fas fa-comments"></i> یادداشت‌های تسلیت
+            </h2>
+
+            <div class="comment-form">
+              <input
+                type="text"
+                id="commentInput"
+                placeholder="یادداشت تسلیت خود را بنویسید..."
+              />
+              <button class="btn" id="submitCommentBtn">
+                <i class="fas fa-paper-plane"></i> ارسال
+              </button>
+            </div>
+
+            <div class="comments-list" id="commentsList">
+              <!-- Comments will be loaded here -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Notification -->
+      <div class="notification" id="notification">
+        <i class="fas fa-info-circle"></i>
+        <span>پیام سیستم</span>
+      </div>
+    </div>
+
+    <script>
+      // State management
+      const state = {
+        currentUser: null,
+        memorials: [],
+        currentMemorial: null,
+        actions: {},
+      };
+
+      // DOM Elements
+      const elements = {
+        authModal: document.getElementById("authModal"),
+        closeModal: document.getElementById("closeModal"),
+        loginBtnMain: document.getElementById("loginBtnMain"),
+        logoutBtn: document.getElementById("logoutBtn"),
+        userWelcome: document.getElementById("userWelcome"),
+        usernameDisplay: document.getElementById("usernameDisplay"),
+        mainPage: document.getElementById("mainPage"),
+        memorialPage: document.getElementById("memorialPage"),
+        createMemorialForm: document.getElementById("createMemorialForm"),
+        memorialsList: document.getElementById("memorialsList"),
+        backBtn: document.getElementById("backBtn"),
+        memorialPageTitle: document.getElementById("memorialPageTitle"),
+        memorialBirthDate: document.getElementById("memorialBirthDate"),
+        memorialDeathDate: document.getElementById("memorialDeathDate"),
+        memorialPagePhoto: document.getElementById("memorialPagePhoto"),
+        memorialPageBio: document.getElementById("memorialPageBio"),
+        candlesContainer: document.getElementById("candlesContainer"),
+        prayBtn: document.getElementById("prayBtn"),
+        commentInput: document.getElementById("commentInput"),
+        submitCommentBtn: document.getElementById("submitCommentBtn"),
+        commentsList: document.getElementById("commentsList"),
+        prayersCount: document.getElementById("prayersCount"),
+        candlesCount: document.getElementById("candlesCount"),
+        commentsCount: document.getElementById("commentsCount"),
+        notification: document.getElementById("notification"),
+        loginBtn: document.getElementById("loginBtn"),
+        registerBtn: document.getElementById("registerBtn"),
+        tabs: document.querySelectorAll(".tab"),
+        tabContents: document.querySelectorAll(".tab-content"),
+      };
+
+      // Initialize
+      function init() {
+        loadData();
+        setupEventListeners();
+        renderMemorials();
+
+        // Check if user is logged in
+        if (state.currentUser) {
+          showUserInfo();
+        }
+      }
+
+      // Load data from localStorage
+      function loadData() {
+        const savedData = localStorage.getItem("memorialAppData");
+        if (savedData) {
+          const data = JSON.parse(savedData);
+          state.currentUser = data.currentUser;
+          state.memorials = data.memorials || [];
+          state.actions = data.actions || {};
+        }
+      }
+
+      // Save data to localStorage
+      function saveData() {
+        const data = {
+          currentUser: state.currentUser,
+          memorials: state.memorials,
+          actions: state.actions,
+        };
+        localStorage.setItem("memorialAppData", JSON.stringify(data));
+      }
+
+      // Setup event listeners
+      function setupEventListeners() {
+        // Auth modal
+        elements.loginBtnMain.addEventListener("click", () => showModal());
+        elements.closeModal.addEventListener("click", () => hideModal());
+
+        // Tabs
+        elements.tabs.forEach((tab) => {
+          tab.addEventListener("click", () => {
+            elements.tabs.forEach((t) => t.classList.remove("active"));
+            elements.tabContents.forEach((c) => c.classList.remove("active"));
+
+            tab.classList.add("active");
+            const tabId = tab.getAttribute("data-tab");
+            document.getElementById(`${tabId}Content`).classList.add("active");
+          });
+        });
+
+        // Auth buttons
+        elements.loginBtn.addEventListener("click", login);
+        elements.registerBtn.addEventListener("click", register);
+        elements.logoutBtn.addEventListener("click", logout);
+
+        // Memorial creation
+        elements.createMemorialForm.addEventListener("submit", createMemorial);
+
+        // Memorial actions
+        elements.prayBtn.addEventListener("click", prayForDeceased);
+        elements.submitCommentBtn.addEventListener("click", submitComment);
+
+        // Navigation
+        elements.backBtn.addEventListener("click", () => {
+          elements.memorialPage.style.display = "none";
+          elements.mainPage.style.display = "block";
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener("click", (e) => {
+          if (e.target === elements.authModal) {
+            hideModal();
+          }
+        });
+      }
+
+      // Show modal
+      function showModal() {
+        elements.authModal.classList.add("show");
+      }
+
+      // Hide modal
+      function hideModal() {
+        elements.authModal.classList.remove("show");
+      }
+
+      // Login function
+      function login() {
+        const username = document.getElementById("loginUsername").value;
+        const password = document.getElementById("loginPassword").value;
+
+        if (!username || !password) {
+          showNotification("لطفاً نام کاربری و رمز عبور را وارد کنید", "error");
+          return;
+        }
+
+        // In a real app, this would be an API call
+        // For demo, we just set the user
+        state.currentUser = {
+          id: Date.now().toString(),
+          name: username,
+          username: username,
+        };
+
+        showUserInfo();
+        hideModal();
+        saveData();
+        showNotification("با موفقیت وارد شدید", "success");
+      }
+
+      // Register function
+      function register() {
+        const name = document.getElementById("registerName").value;
+        const username = document.getElementById("registerUsername").value;
+        const password = document.getElementById("registerPassword").value;
+
+        if (!name || !username || !password) {
+          showNotification("لطفاً تمام فیلدها را پر کنید", "error");
+          return;
+        }
+
+        if (password.length < 6) {
+          showNotification("رمز عبور باید حداقل ۶ کاراکتر باشد", "error");
+          return;
+        }
+
+        state.currentUser = {
+          id: Date.now().toString(),
+          name: name,
+          username: username,
+        };
+
+        showUserInfo();
+        hideModal();
+        saveData();
+        showNotification("حساب کاربری با موفقیت ایجاد شد", "success");
+      }
+
+      // Logout function
+      function logout() {
+        state.currentUser = null;
+        elements.userWelcome.style.display = "none";
+        elements.logoutBtn.style.display = "none";
+        elements.loginBtnMain.style.display = "block";
+        saveData();
+        showNotification("با موفقیت خارج شدید", "success");
+      }
+
+      // Show user info
+      function showUserInfo() {
+        if (state.currentUser) {
+          elements.usernameDisplay.textContent = state.currentUser.name;
+          elements.userWelcome.style.display = "block";
+          elements.logoutBtn.style.display = "block";
+          elements.loginBtnMain.style.display = "none";
+        }
+      }
+
+      // Create memorial
+      function createMemorial(e) {
+        e.preventDefault();
+
+        if (!state.currentUser) {
+          showNotification("لطفاً ابتدا وارد شوید", "error");
+          showModal();
+          return;
+        }
+
+        const name = document.getElementById("deceasedName").value;
+        const birthDate = document.getElementById("birthDate").value;
+        const deathDate = document.getElementById("deathDate").value;
+        const bio = document.getElementById("bio").value;
+
+        if (!name || !birthDate || !deathDate || !bio) {
+          showNotification("لطفاً تمام فیلدهای الزامی را پر کنید", "error");
+          return;
+        }
+
+        const memorial = {
+          id: Date.now().toString(),
+          name: name,
+          birthDate: formatDate(birthDate),
+          deathDate: formatDate(deathDate),
+          bio: bio,
+          photo: null, // In a real app, this would be uploaded
+          creator: state.currentUser.id,
+          createdAt: new Date().toISOString(),
+          prayers: 0,
+          candles: 0,
+          comments: [],
+        };
+
+        // Handle photo upload (simulated)
+        const photoInput = document.getElementById("photo");
+        if (photoInput.files.length > 0) {
+          const file = photoInput.files[0];
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            memorial.photo = e.target.result;
+            finishMemorialCreation(memorial);
+          };
+          reader.readAsDataURL(file);
+        } else {
+          finishMemorialCreation(memorial);
+        }
+      }
+
+      function finishMemorialCreation(memorial) {
+        state.memorials.push(memorial);
+        saveData();
+        renderMemorials();
+        elements.createMemorialForm.reset();
+        showNotification("صفحه یادبود با موفقیت ایجاد شد", "success");
+      }
+
+      // Format date
+      function formatDate(dateString) {
+        const date = new Date(dateString);
+        return date.toLocaleDateString("fa-IR");
+      }
+
+      // Render memorials list
+      function renderMemorials() {
+        elements.memorialsList.innerHTML = "";
+
+        if (state.memorials.length === 0) {
+          elements.memorialsList.innerHTML = `
+                    <div class="memorial-card">
+                        <p>هنوز صفحه یادبودی ایجاد نشده است</p>
+                    </div>
+                `;
+          return;
+        }
+
+        state.memorials.forEach((memorial) => {
+          const card = document.createElement("div");
+          card.className = "memorial-card";
+          card.innerHTML = `
+                    <h3 class="memorial-name">${memorial.name}</h3>
+                    <div class="memorial-dates">
+                        <span>تولد: ${memorial.birthDate}</span>
+                        <span>وفات: ${memorial.deathDate}</span>
+                    </div>
+                    <p class="memorial-bio">${memorial.bio.substring(
+                      0,
+                      100
+                    )}...</p>
+                    
+                    <div class="stats">
+                        <div class="stat-item">
+                            <div class="stat-number">${memorial.prayers}</div>
+                            <div class="stat-label">فاتحه</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">${memorial.candles}</div>
+                            <div class="stat-label">شمع</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">${
+                              memorial.comments.length
+                            }</div>
+                            <div class="stat-label">یادداشت</div>
+                        </div>
+                    </div>
+                    
+                    <div class="actions">
+                        <button class="action-btn" data-action="pray" data-id="${
+                          memorial.id
+                        }">
+                            <i class="fas fa-book-quran"></i>
+                            <span>فاتحه</span>
+                        </button>
+                        <button class="action-btn" data-action="candle" data-id="${
+                          memorial.id
+                        }">
+                            <i class="fas fa-fire"></i>
+                            <span>شمع</span>
+                        </button>
+                        <button class="action-btn" data-action="view" data-id="${
+                          memorial.id
+                        }">
+                            <i class="fas fa-eye"></i>
+                            <span>مشاهده</span>
+                        </button>
+                    </div>
+                `;
+          elements.memorialsList.appendChild(card);
+        });
+
+        // Add event listeners to action buttons
+        document
+          .querySelectorAll('.action-btn[data-action="view"]')
+          .forEach((btn) => {
+            btn.addEventListener("click", () => viewMemorial(btn.dataset.id));
+          });
+
+        document
+          .querySelectorAll('.action-btn[data-action="pray"]')
+          .forEach((btn) => {
+            btn.addEventListener("click", () => {
+              if (!state.currentUser) {
+                showNotification("لطفاً ابتدا وارد شوید", "error");
+                showModal();
+                return;
+              }
+              prayForDeceased(btn.dataset.id);
+            });
+          });
+
+        document
+          .querySelectorAll('.action-btn[data-action="candle"]')
+          .forEach((btn) => {
+            btn.addEventListener("click", () => {
+              if (!state.currentUser) {
+                showNotification("لطفاً ابتدا وارد شوید", "error");
+                showModal();
+                return;
+              }
+              lightCandle(btn.dataset.id);
+            });
+          });
+      }
+
+      // View memorial details
+      function viewMemorial(id) {
+        const memorial = state.memorials.find((m) => m.id === id);
+        if (!memorial) return;
+
+        state.currentMemorial = memorial;
+
+        elements.memorialPageTitle.textContent = memorial.name;
+        elements.memorialBirthDate.textContent = `تولد: ${memorial.birthDate}`;
+        elements.memorialDeathDate.textContent = `وفات: ${memorial.deathDate}`;
+        elements.memorialPageBio.textContent = memorial.bio;
+        elements.prayersCount.textContent = memorial.prayers;
+        elements.candlesCount.textContent = memorial.candles;
+        elements.commentsCount.textContent = memorial.comments.length;
+
+        if (memorial.photo) {
+          elements.memorialPagePhoto.src = memorial.photo;
+          elements.memorialPagePhoto.style.display = "block";
+        } else {
+          elements.memorialPagePhoto.style.display = "none";
+        }
+
+        // Render candles
+        renderCandles();
+
+        // Render comments
+        renderComments();
+
+        // Switch to memorial page
+        elements.mainPage.style.display = "none";
+        elements.memorialPage.style.display = "block";
+      }
+
+      // Render candles
+      function renderCandles() {
+        elements.candlesContainer.innerHTML = "";
+
+        // Create 10 candles - some lit, some not
+        for (let i = 0; i < 10; i++) {
+          const candle = document.createElement("div");
+          candle.className = "candle";
+          if (i < state.currentMemorial.candles % 10) {
+            candle.classList.add("flame");
+          }
+
+          candle.innerHTML = '<div class="candle wick"></div>';
+
+          candle.addEventListener("click", () => {
+            if (!state.currentUser) {
+              showNotification("لطفاً ابتدا وارد شوید", "error");
+              showModal();
+              return;
+            }
+            lightCandle(state.currentMemorial.id, candle);
+          });
+
+          elements.candlesContainer.appendChild(candle);
+        }
+      }
+
+      // Light a candle
+      function lightCandle(memorialId, candleElement = null) {
+        if (!canPerformAction("candle", memorialId)) {
+          showNotification(
+            "شما امروز قبلاً شمع روشن کرده‌اید. فردا دوباره امتحان کنید.",
+            "error"
+          );
+          return;
+        }
+
+        const memorial = state.memorials.find((m) => m.id === memorialId);
+        if (!memorial) return;
+
+        memorial.candles++;
+        saveData();
+
+        if (state.currentMemorial && state.currentMemorial.id === memorialId) {
+          elements.candlesCount.textContent = memorial.candles;
+
+          // If on memorial page, light a candle
+          if (candleElement && !candleElement.classList.contains("flame")) {
+            candleElement.classList.add("flame");
+          }
+        }
+
+        recordAction("candle", memorialId);
+        showNotification("شمع شما با موفقیت روشن شد. روحشان شاد", "success");
+      }
+
+      // Pray for deceased
+      function prayForDeceased(memorialId = null) {
+        if (!memorialId && state.currentMemorial) {
+          memorialId = state.currentMemorial.id;
+        }
+
+        if (!memorialId) return;
+
+        if (!canPerformAction("prayer", memorialId)) {
+          showNotification(
+            "شما امروز قبلاً فاتحه خوانده‌اید. فردا دوباره امتحان کنید.",
+            "error"
+          );
+          return;
+        }
+
+        const memorial = state.memorials.find((m) => m.id === memorialId);
+        if (!memorial) return;
+
+        memorial.prayers++;
+        saveData();
+
+        if (state.currentMemorial && state.currentMemorial.id === memorialId) {
+          elements.prayersCount.textContent = memorial.prayers;
+        }
+
+        recordAction("prayer", memorialId);
+        showNotification(
+          "فاتحه شما با موفقیت ثبت شد. خداوند روحشان را قرین رحمت کند",
+          "success"
+        );
+      }
+
+      // Submit comment
+      function submitComment() {
+        if (!state.currentUser) {
+          showNotification("لطفاً ابتدا وارد شوید", "error");
+          showModal();
+          return;
+        }
+
+        if (!state.currentMemorial) return;
+
+        const commentText = elements.commentInput.value.trim();
+        if (!commentText) {
+          showNotification("لطفاً متن یادداشت را وارد کنید", "error");
+          return;
+        }
+
+        if (!canPerformAction("comment", state.currentMemorial.id)) {
+          showNotification(
+            "شما امروز قبلاً یادداشت گذاشته‌اید. فردا دوباره امتحان کنید.",
+            "error"
+          );
+          return;
+        }
+
+        const comment = {
+          id: Date.now().toString(),
+          userId: state.currentUser.id,
+          userName: state.currentUser.name,
+          text: commentText,
+          date: new Date().toLocaleString("fa-IR"),
+          memorialId: state.currentMemorial.id,
+        };
+
+        state.currentMemorial.comments.unshift(comment);
+        saveData();
+
+        renderComments();
+        elements.commentsCount.textContent =
+          state.currentMemorial.comments.length;
+        elements.commentInput.value = "";
+
+        recordAction("comment", state.currentMemorial.id);
+        showNotification("یادداشت شما با موفقیت ثبت شد", "success");
+      }
+
+      // Render comments
+      function renderComments() {
+        elements.commentsList.innerHTML = "";
+
+        if (
+          !state.currentMemorial ||
+          state.currentMemorial.comments.length === 0
+        ) {
+          elements.commentsList.innerHTML = `
+                    <div class="comment">
+                        <p>هنوز یادداشتی ثبت نشده است</p>
+                    </div>
+                `;
+          return;
+        }
+
+        state.currentMemorial.comments.forEach((comment) => {
+          const commentEl = document.createElement("div");
+          commentEl.className = "comment";
+          commentEl.innerHTML = `
+                    <div class="comment-header">
+                        <div class="comment-user">
+                            <i class="fas fa-user"></i>
+                            <span>${comment.userName}</span>
+                        </div>
+                        <span>${comment.date}</span>
+                    </div>
+                    <p>${comment.text}</p>
+                `;
+          elements.commentsList.appendChild(commentEl);
+        });
+      }
+
+      // Check if user can perform an action
+      function canPerformAction(actionType, memorialId) {
+        if (!state.currentUser) return false;
+
+        const key = `${state.currentUser.id}_${actionType}_${memorialId}`;
+        const lastAction = state.actions[key];
+
+        if (!lastAction) return true;
+
+        const now = new Date();
+        const lastActionDate = new Date(lastAction);
+        const diffHours = Math.abs(now - lastActionDate) / 36e5;
+
+        return diffHours >= 24;
+      }
+
+      // Record action timestamp
+      function recordAction(actionType, memorialId) {
+        if (!state.currentUser) return;
+
+        const key = `${state.currentUser.id}_${actionType}_${memorialId}`;
+        state.actions[key] = new Date().toISOString();
+        saveData();
+      }
+
+      // Show notification
+      function showNotification(message, type = "info") {
+        elements.notification.innerHTML = `
+                <i class="fas fa-${
+                  type === "error"
+                    ? "exclamation-circle"
+                    : type === "success"
+                    ? "check-circle"
+                    : "info-circle"
+                }"></i>
+                <span>${message}</span>
+            `;
+
+        elements.notification.className = "notification show";
+        if (type !== "info") {
+          elements.notification.classList.add(type);
+        }
+
+        setTimeout(() => {
+          elements.notification.classList.remove("show");
+          setTimeout(() => {
+            elements.notification.className = "notification";
+          }, 300);
+        }, 3000);
+      }
+
+      // Initialize the app
+      init();
+    </script>
+  </body>
+</html>
